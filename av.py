@@ -20,26 +20,26 @@ for item in carslist:
 
     ''' Find car image '''
     photo = item.find('div', class_='listing-item__photo')
-    image = photo.find('img')
+    image = photo.find('img')['data-src']
 
     ''' Find car title '''
-    title = item.find('span', class_='link-text')
+    title = item.find('span', class_='link-text').text
 
     ''' Find car link '''
-    params = item.find('div', class_='listing-item__params')
+    params = item.find('div', class_='listing-item__params').text
 
     ''' Find car link '''
-    link = item.find('a', href=True)
+    link = item.find('a', href=True)['href']
  
     carslinks = {
-        'image': image['data-src'],
-        'title': title.text,
-        'params': params.text,
-        'link': link['href']
+        'image': image,
+        'title': title,
+        'params': params,
+        'link': link
     }
 
     finalcars.append(carslinks)
 
-    print(finalcars)
+print(finalcars[1])
     
    
