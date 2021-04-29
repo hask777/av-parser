@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
+
 base_url = 'https://cars.av.by/'
 
 carslinks = {}
@@ -49,8 +50,9 @@ print(len(finalcars))
 
 
 cars = "cars.json"
-with open(cars, 'w') as f:
-    json.dump(finalcars, f, indent=4)
+with open(cars, 'w', encoding='utf-8') as json_file:
+    json.dump(finalcars, json_file, ensure_ascii = False, indent =4)
+
 
 print("file dumped")
     
