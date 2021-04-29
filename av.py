@@ -17,18 +17,20 @@ carslinks = {}
 finalcars = []
 
 for item in carslist:
+
+    ''' Find car image '''
     photo = item.find('div', class_='listing-item__photo')
     image = photo.find('img')
 
+    ''' Find car title '''
     title = item.find('span', class_='link-text')
 
+    ''' Find car link '''
     params = item.find('div', class_='listing-item__params')
 
+    ''' Find car link '''
     link = item.find('a', href=True)
-    # link = link['href']
-
-    # print(image['data-src'])
-
+ 
     carslinks = {
         'image': image['data-src'],
         'title': title.text,
